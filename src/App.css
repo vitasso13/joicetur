@@ -9,12 +9,12 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    
+    animation: App-logo-spin infinite 20s linear;
   }
 }
 
 .App-header {
-  background-color: #ffffff;
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,8 +25,7 @@
 }
 
 .App-link {
-  color: #2cf504;
-  text-shadow: #000000;
+  color: #66fb61;
 }
 
 @keyframes App-logo-spin {
