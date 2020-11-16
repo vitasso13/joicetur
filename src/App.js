@@ -6,8 +6,8 @@ import jwt_decode from 'jwt-decode';
 import AddProduct from './components/AddProduct';
 import Cart from './components/Cart';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import ProductList from './components/ProductList';
-
 import Context from "./Context";
 
 export default class App extends Component {
@@ -55,6 +55,12 @@ export default class App extends Component {
       return false;
     }
   }
+
+
+  
+
+
+
 
   logout = e => {
     e.preventDefault();
@@ -180,6 +186,12 @@ export default class App extends Component {
                     { Object.keys(this.state.cart).length }
                   </span>
                 </Link>
+                
+                {!this.state.user ?(
+                <Link to="/signup" className="navbar-item">
+                  Cadastre-se
+                </Link>
+                ): (<div></div>)}
                 {!this.state.user ? (
                   <Link to="/login" className="navbar-item">
                     Entrar
@@ -197,6 +209,7 @@ export default class App extends Component {
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/add-product" component={AddProduct} />
               <Route exact path="/products" component={ProductList} />
+              <Route exact path="/signup" component={Signup} />
             </Switch>
           </div>
         </Router>

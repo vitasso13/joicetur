@@ -9,20 +9,28 @@ const CartItem = props => {
       <div className="box">
         <div className="media">
           <div className="media-left">
-            
-              <img className="image is-64x64"
-                src={product.img}
-                alt={product.shortDesc}
-              />
-            
+
+            <img className="image is-64x64"
+              src={product.img}
+              alt={product.shortDesc}
+            />
+
           </div>
           <div className="media-content">
+
+
+
             <b style={{ textTransform: "capitalize" }}>
               {product.name}{" "}
               <span className="tag is-primary">R${product.price}</span>
             </b>
             <div>{product.shortDesc}</div>
-            <small>{`${amount} no carrinho`}</small>
+
+            <small>{`${amount} no carrinho`} </small>
+            <div className="buttons are-small has-addons">
+              <button className="button is-danger is-selected" >-</button>
+              <button className="button is-success">+</button>
+            </div>
           </div>
           <div
             className="media-right"
