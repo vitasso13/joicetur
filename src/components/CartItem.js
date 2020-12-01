@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 const CartItem = props => {
   const { cartItem, cartKey } = props;
 
-  const { product, amount } = cartItem;
+
+  let { product, amount } = cartItem;
+  const [am, setAm] = useState(amount);
+  useRef(() => {
+    amount = am;
+    console.log(amount);
+  }, [am])
+  function incAmount() {
+    setAm(am + 1);
+
+  }
+  function decAmount() {
+    if (am > 0)
+      setAm(am - 1);
+    else { props.removeFromCart(cartKey) }
+  }
   return (
     <div className=" column is-half">
       <div className="box">
@@ -26,10 +41,10 @@ const CartItem = props => {
             </b>
             <div>{product.shortDesc}</div>
 
-            <small>{`${amount} no carrinho`} </small>
             <div className="buttons are-small has-addons">
-              <button className="button is-danger is-selected" >-</button>
-              <button className="button is-success">+</button>
+              <button className="button is-danger is-selected" onClick={() => decAmount()}>-</button>
+              <small className="button" style={{borderStyle: "solid"}}>{`  ${am}  `} </small>
+              <button className="button is-success" onClick={() => incAmount()}>+</button>
             </div>
           </div>
           <div
